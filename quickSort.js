@@ -1,5 +1,12 @@
 console.log('This is quick Sort');
 
+/**
+ * Pick the last element as Pivot
+ * and arrange the elements arount it
+ * in a recursive manner
+ * @param {*} array 
+ * @returns 
+ */
 function quickSort(array){
     if(array.length <= 1){
         return array;

@@ -1,5 +1,11 @@
 console.log('This is Heap Sort');
-
+/**
+ *  reshaping a binary tree into a Heap data structure
+ * @param {*} array 
+ * @param {*} length 
+ * @param {*} i 
+ * @returns 
+ */
 function heapify(array, length, i){
     let largest = i;
     let left = i*2 + 1;
@@ -20,6 +26,12 @@ function heapify(array, length, i){
     return array;
 }
 
+/**
+ * Main function to do the comparisons
+ * and call the heapify 
+ * @param {*} array 
+ * @returns 
+ */
 function heapSort(array){
     let length = array.length;
     let i = Math.floor(length/2 - 1);

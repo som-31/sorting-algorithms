@@ -1,3 +1,9 @@
+/**
+ * Compare and swap the elements
+ * till all the elements are sorted
+ * @param {*} array 
+ * @returns 
+ */
 function bubbleSort(array){
    const sortedArray = array.slice();
    for (let i = 0; i < sortedArray.length - 1; i++) {

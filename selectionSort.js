@@ -1,3 +1,9 @@
+/**
+ * Finding the minimum element in the array
+ * and swap it with element in the beginning
+ * @param {*} array 
+ * @returns 
+ */
 function selectionSort(array){
     //duplucate the array
     const sortedArray = array.slice();

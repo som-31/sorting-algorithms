@@ -1,5 +1,13 @@
 console.log('this is insertion sort');
 
+/**
+ * In place Comparison-based algorithm
+ * Create a duplicate array
+ * use loops to compare the each element 
+ * and then swap it
+ * @param {*} array 
+ * @returns 
+ */
 function insertionSort(array){
     //duplicate an array
     const sortedArray = array.slice();
