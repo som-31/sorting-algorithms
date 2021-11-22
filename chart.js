@@ -312,7 +312,6 @@ function drawGraph(executionTimeMap){
             { label : "selectionSort", y: executionTimeMap["selectionSort"]},
             { label: "quick", y: executionTimeMap["quick"] },
             { label : "merge", y: executionTimeMap["merge"] },
-            {label : "quickSortUsingMedian", y: executionTimeMap["quickSortUsingMedian"]},
         ]
     }]
 });
