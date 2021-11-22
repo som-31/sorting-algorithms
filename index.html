@@ -5,10 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="quickSort.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="chart.js"></script>
     <!-- <script src="randonNumberGenerator.js"></script> -->
 </head>
 <body>
-    <h1>Hey There</h1>
+    <form action="" method="post">
+        <div>
+            <label>Select Algorithm</label>
+            <select id="algorithm" name="select Algorithm" >
+            <option> ---sorting Algorithms--- </option>  
+            <option> bubble sort </option>  
+            <option> heapSort </option>  
+            <option> insertion sort </option>  
+            <option> merge sort </option> 
+            <option> quick sort </option>
+            <option> selection sort </option> 
+            </select>    
+        </div>
+        <br>
+        <br>
+        <div>
+            <label>Enter Input Size</label>
+            <input type="number" id="inputSize" name="Input Size" />
+        </div>
+        <div>
+            <input type="button" value="Submit" onclick="sort()">
+        </div>
+        <br>
+    </form>
+    <div>
+        <h3>Unsorted Array:</h3>
+        <p id="unsortedArray" style="overflow: auto;"></p>
+    </div>
+    <div>
+        <h3>Sorted Array:</h3>
+        <p id="sortedArray" style="overflow: auto;"></p>
+    </div>
+    <div id="chartContainer" style="height: 370px; width:100%;"></div> 
 </body>
 </html>
