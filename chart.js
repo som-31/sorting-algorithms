@@ -1,4 +1,9 @@
+
+/**
+ * Main function Driver for everything
+ */
 function sort(){
+
     var mylist = document.getElementById("algorithm");
     var inputSize = document.getElementById("inputSize").value;
     selectedAlgorithm =  mylist.options[mylist.selectedIndex].text;
@@ -7,40 +12,64 @@ function sort(){
     executionTimeMap = {}
     console.log("unsorted array" + array);
     document.getElementById('unsortedArray').innerHTML = array;
+
+    // For Regular Quick Sort
     var start = performance.now();
     let sortedArray = quickSort(array);
-    document.getElementById('sortedArray').innerHTML = sortedArray;
     var end = performance.now();
-    executionTimeMap["quick"] = end - start
+    document.getElementById('sortedArray').innerHTML = sortedArray;
+    executionTimeMap["quick"] = end - start;
+
+    // For merge Sort
     var start = performance.now();
     mergeSort(array)
     var end = performance.now();
     executionTimeMap["merge"] = end - start
+
+    // For Bubble Sort
     var start = performance.now();
     bubbleSort(array)
     var end = performance.now();
     executionTimeMap["bubble"] = end - start
+
+    //For Insertion Sort
     var start = performance.now();
     insertionSort(array)
     var end = performance.now();
     executionTimeMap["insertion"] = end - start
+
+    // For Heap Sort
     var start = performance.now();
     heapSort(array)
     var end = performance.now();
     executionTimeMap["heap"] = end - start
     console.log(executionTimeMap);
+
+    // For Quick Sort Using 3 Median
     var start = performance.now();
     quickSortUsingMedian(array)
     var end = performance.now();
     executionTimeMap["quickSortUsingMedian"] = end - start
     console.log(executionTimeMap);
+
+    // For Selection Sort
     var start = performance.now();
     selectionSort(array)
     var end = performance.now();
     executionTimeMap["selectionSort"] = end - start
     console.log(executionTimeMap);
+
+    // For Drawing graph
     drawGraph(executionTimeMap)
 }
+
+/**
+ * Pick the last element as Pivot
+ * and arrange the elements arount it
+ * in a recursive manner
+ * @param {*} array 
+ * @returns 
+ */
 function quickSort(array){
     if(array.length <= 1){
         return array;
@@ -53,6 +82,14 @@ function quickSort(array){
     }
     return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
 }
+
+
+/**
+ * Finding the minimum element in the array
+ * and swap it with element in the beginning
+ * @param {*} array 
+ * @returns 
+ */
 function selectionSort(array){
     //duplucate the array
     const sortedArray = array.slice();
@@ -71,6 +108,14 @@ function selectionSort(array){
     }
     return sortedArray;
 }
+
+/**
+ * Code block to generate the 
+ * random array and within defined range
+ * @param {*} inputSize 
+ * @param {*} max 
+ * @returns 
+ */
 function generateRandomNumbers(inputSize, max){
     let inputArray = [];
     for(let i = 1; i <= inputSize; i++){
@@ -78,6 +123,14 @@ function generateRandomNumbers(inputSize, max){
     }
     return inputArray;
 }
+
+/**
+ *  reshaping a binary tree into a Heap data structure
+ * @param {*} array 
+ * @param {*} length 
+ * @param {*} i 
+ * @returns 
+ */
 function heapify(array, length, i){
     let largest = i;
     let left = i*2 + 1;
@@ -94,6 +147,13 @@ function heapify(array, length, i){
     }
     return array;
 }
+
+/**
+ * Main function to do the comparisons
+ * and call the heapify 
+ * @param {*} array 
+ * @returns 
+ */
 function heapSort(array){
     let length = array.length;
     let i = Math.floor(length/2 - 1);
@@ -109,6 +169,16 @@ function heapSort(array){
     }
     return array;
 }
+
+
+/**
+ * In place Comparison-based algorithm
+ * Create a duplicate array
+ * use loops to compare the each element 
+ * and then swap it
+ * @param {*} array 
+ * @returns 
+ */
 function insertionSort(array){
     //duplicate an array
     const sortedArray = array.slice();
@@ -166,6 +236,14 @@ function mergeSort(array){
         mergeSort(rightArr)
     );
 }
+
+
+/**
+ * Compare and swap the elements
+ * till all the elements are sorted
+ * @param {*} array 
+ * @returns 
+ */
 function bubbleSort(array){
     const sortedArray = array.slice();
     for (let i = 0; i < sortedArray.length - 1; i++) {
@@ -177,6 +255,13 @@ function bubbleSort(array){
     }
     return sortedArray;
 }
+
+
+/**
+ * Quick Sort using median of 3 pivots
+ * @param {*} array 
+ * @returns 
+ */
 function quickSortUsingMedian(array){
     if(array.length <= 1){
         return array;
@@ -198,6 +283,12 @@ function medianOfThree(first, mid, last){
         return last
     }
 }
+
+
+/**
+ * Codeblock to drawing of graph
+ * @param {*} executionTimeMap 
+ */
 function drawGraph(executionTimeMap){
     var chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
